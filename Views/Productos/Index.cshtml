@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SistemaRequisiciones_WebApp.Productos>
+
+@{
+    ViewBag.Title = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- INDEX DE LOS PRODUCTOS-->
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Part)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surtido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoRequisicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Requisiciones.Area)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Part)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surtido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoRequisicion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Requisiciones.Area)
+            </td>
+            <td>
+                <button type="button" class="btn btn-block btn-warning btn-xs">
+                    @Html.ActionLink("Editar", "Edit", new { id = item.NoRequisicion })
+                </button>
+                <button type="button" class="btn btn-block btn-info btn-xs">
+                    @Html.ActionLink("Details", "Details", new { id = item.NoRequisicion })
+                </button>
+                <button type="button" class="btn btn-block btn-danger btn-xs">
+                    @Html.ActionLink("Delete", "Delete", new { id = item.NoRequisicion })
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>

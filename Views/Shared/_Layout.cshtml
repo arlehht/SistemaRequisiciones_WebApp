@@ -9,7 +9,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<!--dark-mode-->
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
         <!-- Preloader: Muestra una pequeña animación antes de iniciar el sistema -->
         <div class="preloader flex-column justify-content-center align-items-center">
@@ -27,6 +28,12 @@
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    @Html.ActionLink("Requisición", "Index", "Requisiciones", null, new { @class = "nav-link" })
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    @Html.ActionLink("Productos", "Index", "Productos", null, new { @class = "nav-link" })
                 </li>
             </ul>
             <!-- Right navbar links -->
