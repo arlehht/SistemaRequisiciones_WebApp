@@ -6,19 +6,18 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using SistemaRequisiciones_WebApp;
+using SistemaRequisiciones_WebApp.Models;
 
 namespace SistemaRequisiciones_WebApp.Controllers
 {
     public class RequisicionesController : Controller
     {
-        private dbRequisicionesEntities db = new dbRequisicionesEntities();
+        private dbRequisicionesEntities2 db = new dbRequisicionesEntities2();
 
         // GET: Requisiciones
         public ActionResult Index()
         {
-            var requisiciones = db.Requisiciones.Include(r => r.Productos);
-            return View(requisiciones.ToList());
+            return View(db.Requisiciones.ToList());
         }
 
         // GET: Requisiciones/Details/5
@@ -39,7 +38,6 @@ namespace SistemaRequisiciones_WebApp.Controllers
         // GET: Requisiciones/Create
         public ActionResult Create()
         {
-            ViewBag.NoRequisicion = new SelectList(db.Productos, "Part", "Descripcion");
             return View();
         }
 
@@ -57,7 +55,6 @@ namespace SistemaRequisiciones_WebApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.NoRequisicion = new SelectList(db.Productos, "Part", "Descripcion", requisiciones.NoRequisicion);
             return View(requisiciones);
         }
 
@@ -73,7 +70,6 @@ namespace SistemaRequisiciones_WebApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.NoRequisicion = new SelectList(db.Productos, "Part", "Descripcion", requisiciones.NoRequisicion);
             return View(requisiciones);
         }
 
@@ -90,7 +86,6 @@ namespace SistemaRequisiciones_WebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.NoRequisicion = new SelectList(db.Productos, "Part", "Descripcion", requisiciones.NoRequisicion);
             return View(requisiciones);
         }
 

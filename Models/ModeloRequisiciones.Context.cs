@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SistemaRequisiciones_WebApp
+namespace SistemaRequisiciones_WebApp.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbRequisicionesEntities : DbContext
+    public partial class dbRequisicionesEntities2 : DbContext
     {
-        public dbRequisicionesEntities()
-            : base("name=dbRequisicionesEntities")
+        public dbRequisicionesEntities2()
+            : base("name=dbRequisicionesEntities2")
         {
         }
     

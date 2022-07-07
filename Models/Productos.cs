@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SistemaRequisiciones_WebApp
+namespace SistemaRequisiciones_WebApp.Models
 {
     using System;
     using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace SistemaRequisiciones_WebApp
         public int Unidad { get; set; }
         public string Descripcion { get; set; }
         public string Surtido { get; set; }
-        public int NoRequisicion { get; set; }
+        public Nullable<int> NoRequisicion { get; set; }
     
         public virtual Requisiciones Requisiciones { get; set; }
     }

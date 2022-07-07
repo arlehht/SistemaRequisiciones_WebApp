@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using SistemaRequisiciones_WebApp;
+using SistemaRequisiciones_WebApp.Models;
 
 namespace SistemaRequisiciones_WebApp.Controllers
 {
     public class ProductosController : Controller
     {
-        private dbRequisicionesEntities db = new dbRequisicionesEntities();
+        private dbRequisicionesEntities2 db = new dbRequisicionesEntities2();
 
         // GET: Productos
         public ActionResult Index()
@@ -39,7 +39,7 @@ namespace SistemaRequisiciones_WebApp.Controllers
         // GET: Productos/Create
         public ActionResult Create()
         {
-            ViewBag.Part = new SelectList(db.Requisiciones, "NoRequisicion", "Area");
+            ViewBag.NoRequisicion = new SelectList(db.Requisiciones, "NoRequisicion", "Area");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace SistemaRequisiciones_WebApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Part = new SelectList(db.Requisiciones, "NoRequisicion", "Area", productos.Part);
+            ViewBag.NoRequisicion = new SelectList(db.Requisiciones, "NoRequisicion", "Area", productos.NoRequisicion);
             return View(productos);
         }
 
@@ -73,7 +73,7 @@ namespace SistemaRequisiciones_WebApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Part = new SelectList(db.Requisiciones, "NoRequisicion", "Area", productos.Part);
+            ViewBag.NoRequisicion = new SelectList(db.Requisiciones, "NoRequisicion", "Area", productos.NoRequisicion);
             return View(productos);
         }
 
@@ -90,7 +90,7 @@ namespace SistemaRequisiciones_WebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Part = new SelectList(db.Requisiciones, "NoRequisicion", "Area", productos.Part);
+            ViewBag.NoRequisicion = new SelectList(db.Requisiciones, "NoRequisicion", "Area", productos.NoRequisicion);
             return View(productos);
         }
 

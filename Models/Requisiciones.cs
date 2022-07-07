@@ -7,13 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SistemaRequisiciones_WebApp
+namespace SistemaRequisiciones_WebApp.Models
 {
     using System;
     using System.Collections.Generic;
     
     public partial class Requisiciones
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Requisiciones()
+        {
+            this.Productos = new HashSet<Productos>();
+        }
+    
         public int NoRequisicion { get; set; }
         public System.DateTime Fecha { get; set; }
         public string Area { get; set; }
@@ -23,6 +29,7 @@ namespace SistemaRequisiciones_WebApp
         public System.DateTime FechaSurtido { get; set; }
         public string CompraServicio { get; set; }
     
-        public virtual Productos Productos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Productos> Productos { get; set; }
     }
 }

@@ -12,9 +12,9 @@
           <Property Name="Part" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Cantidad" Type="int" Nullable="false" />
           <Property Name="Unidad" Type="int" Nullable="false" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Surtido" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="NoRequisicion" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Surtido" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="NoRequisicion" Type="int" />
         </EntityType>
         <EntityType Name="Requisiciones">
           <Key>
@@ -22,29 +22,29 @@
           </Key>
           <Property Name="NoRequisicion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Fecha" Type="date" Nullable="false" />
-          <Property Name="Area" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="EntregarEn" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Prioridad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Area" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="EntregarEn" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="Prioridad" Type="varchar" MaxLength="120" Nullable="false" />
           <Property Name="FechaSurtido" Type="date" Nullable="false" />
-          <Property Name="CompraServicio" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompraServicio" Type="varchar" MaxLength="120" Nullable="false" />
         </EntityType>
-        <Association Name="FK_NoRequisicion">
-          <End Role="Requisiciones" Type="Self.Requisiciones" Multiplicity="1" />
-          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+        <Association Name="fk_requisicion">
+          <End Role="Requisiciones" Type="Self.Requisiciones" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Requisiciones">
               <PropertyRef Name="NoRequisicion" />
             </Principal>
             <Dependent Role="Productos">
-              <PropertyRef Name="Part" />
+              <PropertyRef Name="NoRequisicion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="dbRequisicionesModelStoreContainer">
           <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Requisiciones" EntityType="Self.Requisiciones" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_NoRequisicion" Association="Self.FK_NoRequisicion">
+          <AssociationSet Name="fk_requisicion" Association="Self.fk_requisicion">
             <End Role="Requisiciones" EntitySet="Requisiciones" />
             <End Role="Productos" EntitySet="Productos" />
           </AssociationSet>
@@ -61,10 +61,10 @@
           <Property Name="Part" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Cantidad" Type="Int32" Nullable="false" />
           <Property Name="Unidad" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Surtido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NoRequisicion" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Requisiciones" Relationship="Self.FK_NoRequisicion" FromRole="Productos" ToRole="Requisiciones" />
+          <Property Name="Descripcion" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Surtido" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NoRequisicion" Type="Int32" />
+          <NavigationProperty Name="Requisiciones" Relationship="Self.fk_requisicion" FromRole="Productos" ToRole="Requisiciones" />
         </EntityType>
         <EntityType Name="Requisiciones">
           <Key>
@@ -72,30 +72,30 @@
           </Key>
           <Property Name="NoRequisicion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EntregarEn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Prioridad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EntregarEn" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prioridad" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FechaSurtido" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="CompraServicio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Productos" Relationship="Self.FK_NoRequisicion" FromRole="Requisiciones" ToRole="Productos" />
+          <Property Name="CompraServicio" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Productos" Relationship="Self.fk_requisicion" FromRole="Requisiciones" ToRole="Productos" />
         </EntityType>
-        <Association Name="FK_NoRequisicion">
-          <End Role="Requisiciones" Type="Self.Requisiciones" Multiplicity="1" />
-          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+        <Association Name="fk_requisicion">
+          <End Role="Requisiciones" Type="Self.Requisiciones" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Requisiciones">
               <PropertyRef Name="NoRequisicion" />
             </Principal>
             <Dependent Role="Productos">
-              <PropertyRef Name="Part" />
+              <PropertyRef Name="NoRequisicion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="dbRequisicionesEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="dbRequisicionesEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Productos" EntityType="Self.Productos" />
           <EntitySet Name="Requisiciones" EntityType="Self.Requisiciones" />
-          <AssociationSet Name="FK_NoRequisicion" Association="Self.FK_NoRequisicion">
+          <AssociationSet Name="fk_requisicion" Association="Self.fk_requisicion">
             <End Role="Requisiciones" EntitySet="Requisiciones" />
             <End Role="Productos" EntitySet="Productos" />
           </AssociationSet>
@@ -105,7 +105,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbRequisicionesModelStoreContainer" CdmEntityContainer="dbRequisicionesEntities">
+        <EntityContainerMapping StorageEntityContainer="dbRequisicionesModelStoreContainer" CdmEntityContainer="dbRequisicionesEntities2">
           <EntitySetMapping Name="Productos">
             <EntityTypeMapping TypeName="dbRequisicionesModel.Productos">
               <MappingFragment StoreEntitySet="Productos">
