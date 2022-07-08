@@ -46,6 +46,7 @@ namespace SistemaRequisiciones_WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        //Actioin result!!
         public ActionResult Create([Bind(Include = "NoRequisicion,Fecha,Area,Tipo,EntregarEn,Prioridad,FechaSurtido,CompraServicio")] Requisiciones requisiciones)
         {
             if (ModelState.IsValid)

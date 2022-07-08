@@ -1,58 +1,75 @@
 ﻿@model IEnumerable<SistemaRequisiciones_WebApp.Models.Productos>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Productos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@*INDEX DEL PRODUCTO*@
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Cantidad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Unidad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Surtido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Requisiciones.Area)
-        </th>
-        <th></th>
-    </tr>
+<p><a class="btn btn-primary" href="/Productos/Create" role="button">Nuevo</a></p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cantidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Unidad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Surtido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Requisiciones.Area)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Part }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Part }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Part })
-        </td>
-    </tr>
-}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"> Productos </h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-</table>
+<div class="card-body table-responsive p-0" style="height: 300px;">
+    <table class="table table-head-fixed table-hover text-nowrap">
+        <thead>
+            <tr>
+                <th>Part</th>
+                <th>Cantidad</th>
+                <th>Unidad</th>
+                <th>Descripción</th>
+                <th>Surtido</th>
+                <th>Número de requisición</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Part)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surtido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Requisiciones.NoRequisicion)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Part }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Part }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Part })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

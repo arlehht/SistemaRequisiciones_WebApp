@@ -1,70 +1,83 @@
 ﻿@model IEnumerable<SistemaRequisiciones_WebApp.Models.Requisiciones>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Requisiciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Area)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EntregarEn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prioridad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaSurtido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompraServicio)
-        </th>
-        <th></th>
-    </tr>
+@*INDEX DE LA REQUI *@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Area)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EntregarEn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prioridad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaSurtido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompraServicio)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NoRequisicion }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NoRequisicion }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NoRequisicion })
-        </td>
-    </tr>
-}
+<p><a class="btn btn-primary" href="/Requisiciones/Create" role="button">Nuevo</a></p>
 
-</table>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"> Requisiciones </h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card-body table-responsive p-0" style="height: 300px;">
+    <table class="table table-head-fixed table-hover text-nowrap">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Fecha</th>
+                <th>Área</th>
+                <th>Tipo</th>
+                <th>Entregar en:</th>
+                <th>Prioridad</th>
+                <th>Fecha del surtido</th>
+                <th>Compra/Servicio</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoRequisicion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntregarEn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prioridad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaSurtido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompraServicio)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.NoRequisicion }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.NoRequisicion }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.NoRequisicion })
+                </td>
+            </tr>
+        }
+    </table>
