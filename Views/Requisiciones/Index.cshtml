@@ -4,12 +4,12 @@
     ViewBag.Title = "Requisiciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
+<hr /><br>
 @*INDEX DE LA REQUI *@
 
-<p><a class="btn btn-primary" href="/Requisiciones/Create" role="button">Nuevo</a></p>
+<p><a class="btn btn-primary" href="/Requisiciones/Create" role="button">Nueva Requisición</a></p>
 
+@*Encabezado de la tabla*@
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -45,7 +45,6 @@
                 <th></th>
             </tr>
         </thead>
-
         @foreach (var item in Model)
         {
             <tr>
@@ -74,10 +73,11 @@
                     @Html.DisplayFor(modelItem => item.CompraServicio)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.NoRequisicion }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.NoRequisicion }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.NoRequisicion })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.NoRequisicion }, new { @class = "btn btn-warning pull-right btn-sm" })
+                    @Html.ActionLink("Detalles", "Details", new { id = item.NoRequisicion }, new { @class = "btn btn-primary pull-right btn-sm" })
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.NoRequisicion }, new { @class = "btn btn-danger pull-right btn-sm" })
                 </td>
             </tr>
-        }
+         }
     </table>
+</div>

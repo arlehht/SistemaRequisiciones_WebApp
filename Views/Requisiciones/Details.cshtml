@@ -1,75 +1,61 @@
 ﻿@model SistemaRequisiciones_WebApp.Models.Requisiciones
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles de la Requisición";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>Requisiciones</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
-
-        <dd>
+<hr/>
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <label>Fecha: </label>
+        </div>
+        <div class="col">
+            <label>Área: </label>
+        </div>
+        <div class="col">
+            <label>Tipo: </label>
+        </div>
+        <div class="col">
+            <label>Entregar en: </label>
+        </div>
+        <div class="col">
+            <label>Prioridad: </label>
+        </div>
+        <div class="col">
+            <label>Fecha del surtido: </label>
+        </div>
+        <div class="col">
+            <label>Compra/Servicio: </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             @Html.DisplayFor(model => model.Fecha)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Area)
-        </dt>
-
-        <dd>
+        </div>
+        <div class="col">
             @Html.DisplayFor(model => model.Area)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </dt>
-
-        <dd>
+        </div>
+        <div class="col">
             @Html.DisplayFor(model => model.Tipo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EntregarEn)
-        </dt>
-
-        <dd>
+        </div>
+        <div class="col">
             @Html.DisplayFor(model => model.EntregarEn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Prioridad)
-        </dt>
-
-        <dd>
+        </div>
+        <div class="col">
             @Html.DisplayFor(model => model.Prioridad)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaSurtido)
-        </dt>
-
-        <dd>
+        </div>
+        <div class="col">
             @Html.DisplayFor(model => model.FechaSurtido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CompraServicio)
-        </dt>
-
-        <dd>
+        </div>
+        <div class="col">
             @Html.DisplayFor(model => model.CompraServicio)
-        </dd>
-
-    </dl>
+        </div>
+    </div>
 </div>
+<br>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.NoRequisicion }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NoRequisicion }, new { @class = "btn btn-primary pull-right" })
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-dark pull-right" })
 </p>

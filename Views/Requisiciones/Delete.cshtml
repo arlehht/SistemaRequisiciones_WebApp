@@ -1,81 +1,68 @@
 ﻿@model SistemaRequisiciones_WebApp.Models.Requisiciones
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Borrar Requisición";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h5>¿Estás seguro de borrar esta requisición?</h5><hr /><br>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Requisiciones</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Area)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Area)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Tipo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EntregarEn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EntregarEn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Prioridad)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Prioridad)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaSurtido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaSurtido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CompraServicio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CompraServicio)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <label>Fecha: </label>
         </div>
-    }
+        <div class="col">
+            <label>Área: </label>
+        </div>
+        <div class="col">
+            <label>Tipo: </label>
+        </div>
+        <div class="col">
+            <label>Entregar en: </label>
+        </div>
+        <div class="col">
+            <label>Prioridad: </label>
+        </div>
+        <div class="col">
+            <label>Fecha del surtido: </label>
+        </div>
+        <div class="col">
+            <label>Compra/Servicio: </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @Html.DisplayFor(model => model.Fecha)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Area)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Tipo)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.EntregarEn)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Prioridad)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.FechaSurtido)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.CompraServicio)
+        </div>
+    </div>
 </div>
+<br>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-actions no-color">
+        <p>
+            <input type="submit" class="btn btn-danger" value="Delete" />
+            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-dark pull-right" })
+        </p>
+    </div>
+}

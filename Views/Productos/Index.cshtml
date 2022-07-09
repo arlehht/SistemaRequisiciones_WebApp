@@ -4,11 +4,12 @@
     ViewBag.Title = "Productos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<hr /><br>
 @*INDEX DEL PRODUCTO*@
 
 <p><a class="btn btn-primary" href="/Productos/Create" role="button">Nuevo</a></p>
 
+@*Encabezado de la tabla*@
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -65,9 +66,9 @@
                     @Html.DisplayFor(modelItem => item.Requisiciones.NoRequisicion)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Part }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Part }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Part })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.Part }, new { @class = "btn btn-warning pull-right btn-sm" })
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Part }, new { @class = "btn btn-primary pull-right btn-sm" })
+                    @Html.ActionLink("Borrar", "Delete", new { id = item.Part }, new { @class = "btn btn-danger pull-right btn-sm" })
                 </td>
             </tr>
         }
