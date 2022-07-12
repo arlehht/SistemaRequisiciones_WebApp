@@ -18,7 +18,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Cantidad, "Cantidad: ")
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(m => Model.Cantidad, new { htmlAttributes = new { min = 1, @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Unidad, "Unidad: ")
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Unidad, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(m => Model.Unidad, new { htmlAttributes = new { min = 1, @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Unidad, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -58,8 +58,6 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.NoRequisicion, "No. de Requisicion: ")
                     <div class="col-md-10">
-                        @*@Html.DropDownList("NoRequisicion", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.NoRequisicion, "", new { @class = "text-danger" })*@
                         @Html.EditorFor(model => model.NoRequisicion, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.NoRequisicion, "", new { @class = "text-danger" })
                     </div>

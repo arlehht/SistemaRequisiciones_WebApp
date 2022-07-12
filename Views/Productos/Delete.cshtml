@@ -9,62 +9,50 @@
 
 <div class="container-fluid">
     <div class="row">
-    
-    </div>
-
-
-
-
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cantidad)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cantidad)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Unidad)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Unidad)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Surtido)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Surtido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Requisiciones.NoRequisicion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Requisiciones.NoRequisicion)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="col">
+            <label>Cantidad: </label>
         </div>
-    }
+        <div class="col">
+            <label>Unidad: </label>
+        </div>
+        <div class="col">
+            <label>Descripción: </label>
+        </div>
+        <div class="col">
+            <label>Surtido: </label>
+        </div>
+        <div class="col">
+            <label>No. de Requisición: </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @Html.DisplayFor(model => model.Cantidad)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Unidad)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Descripcion)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Surtido)
+        </div>
+        <div class="col">
+            @Html.DisplayFor(model => model.Requisiciones.NoRequisicion)
+        </div>
+    </div>
 </div>
+<br>
+
+@using (Html.BeginForm())
+    {
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <p>
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-dark pull-right" })
+        </p>
+    </div>
+    }

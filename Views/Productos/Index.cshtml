@@ -5,9 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <hr /><br>
-@*INDEX DEL PRODUCTO*@
-
-<p><a class="btn btn-primary" href="/Productos/Create" role="button">Nuevo</a></p>
+<p><a class="btn btn-primary" href="/Productos/Create" role="button">Nuevo Producto</a></p>
 
 @*Encabezado de la tabla*@
 <div class="row">
@@ -43,7 +41,6 @@
                 <th></th>
             </tr>
         </thead>
-
         @foreach (var item in Model)
         {
             <tr>

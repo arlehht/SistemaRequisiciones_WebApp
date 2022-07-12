@@ -4,7 +4,8 @@
     ViewBag.Title = "Crear Requisición";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<hr /><br>
+<hr />
+<br>
 
 @using (Html.BeginForm())
 {
@@ -22,7 +23,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col">
                 <div class="form-group">
                     @Html.LabelFor(model => model.Area, "Área: ")
@@ -33,7 +33,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col">
                 <div class="form-group">
@@ -54,7 +53,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col">
                 <div class="form-group">
@@ -87,11 +85,12 @@
             </div>
             <div class="col"></div>
         </div>
-
     </div>
     <br>
     <p>
         <button type="submit" class="btn btn-primary" value="Create">Guardar</button>
         @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-dark pull-right" })
     </p>
+    @*modificar la vista para que en lugar de ser "detalles" sea para EXPORTACIÓN
+        Se visualizará la tabla con todas las requisiciones juntas --> Click en botón exportar a PDF*@
 }
