@@ -6,91 +6,103 @@
 }
 <hr />
 <br>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="container-fluid">
-        <div class="row">
-
-            <div class="col">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+@*Botón nuevo para sacar al modal*@
+<button type="button" class="btn btn-info form-control" data-toggle="modal" data-target="#myModal">Crear nueva requi</button>
+@*Comienzo del modal*@
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <form method="post" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <h3 class="modal-title text-primary text-center">
+                        Creando nueva requisición
+                    </h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                @*Comienzo del body del modal*@
+                <div class="modal-body">
+                    @Html.AntiForgeryToken()
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Area, "Área: ")
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Tipo, "Tipo: ")
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EntregarEn, "Entregar en: ")
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.EntregarEn, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.EntregarEn, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Prioridad, "Prioridad: ")
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Prioridad, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Prioridad, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.FechaSurtido, "Fecha del surtido: ")
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.FechaSurtido, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.FechaSurtido, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CompraServicio, "Compra/Servicio: ")
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.CompraServicio, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.CompraServicio, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Area, "Área: ")
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
-                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-success">Guardar</button>
                 </div>
-            </div>
+            </form>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Tipo, "Tipo: ")
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.EntregarEn, "Entregar en: ")
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.EntregarEn, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.EntregarEn, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Prioridad, "Prioridad: ")
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Prioridad, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Prioridad, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FechaSurtido, "Fecha del surtido: ")
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.FechaSurtido, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.FechaSurtido, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.CompraServicio, "Compra/Servicio: ")
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.CompraServicio, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.CompraServicio, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            <div class="col"></div>
-        </div>
-    </div>
-    <br>
-    <p>
-        <button type="submit" class="btn btn-primary" value="Create">Guardar</button>
-        @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-dark pull-right" })
-    </p>
-    @*modificar la vista para que en lugar de ser "detalles" sea para EXPORTACIÓN
-        Se visualizará la tabla con todas las requisiciones juntas --> Click en botón exportar a PDF*@
-}
+   </div>
+</div>

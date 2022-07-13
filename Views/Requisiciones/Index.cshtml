@@ -1,11 +1,15 @@
 ﻿@model IEnumerable<SistemaRequisiciones_WebApp.Models.Requisiciones>
+@*@model SistemaRequisiciones_WebApp.Models.Requisiciones*@
 
 @{
     ViewBag.Title = "Requisiciones";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<hr /><br>
+<hr />
+<br>
 <p><a class="btn btn-primary" href="/Requisiciones/Create" role="button">Nueva Requisición</a></p>
+@*Botón nuevo para sacar al modal intento*@
+
 
 @*Encabezado de la tabla*@
 <div class="row">
@@ -28,6 +32,7 @@
     </div>
 </div>
 
+@*Esta es la tabla como tal*@
 <div class="card-body table-responsive p-0" style="height: 300px;">
     <table class="table table-head-fixed table-hover text-nowrap">
         <thead>
@@ -76,6 +81,6 @@
                     @Html.ActionLink("Borrar", "Delete", new { id = item.NoRequisicion }, new { @class = "btn btn-danger pull-right btn-sm" })
                 </td>
             </tr>
-         }
+        }
     </table>
 </div>
