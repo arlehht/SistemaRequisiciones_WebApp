@@ -1,4 +1,6 @@
 ﻿@model SistemaRequisiciones_WebApp.Models.Requisiciones
+    @*podríamos utilizar este objeto: todas las operaciones (detalle, crear, borrar, modificar)
+    lo utilizan*@
 
 @{
     ViewBag.Title = "Detalles de la Requisición";
@@ -7,6 +9,7 @@
 <hr/>
 <br>
 <div class="container-fluid">
+    @*Se crea la tabla*@
     <div class="row">
         <div class="col">
             <label>Fecha: </label>
@@ -30,6 +33,7 @@
             <label>Compra/Servicio: </label>
         </div>
     </div>
+    @*Se llena la tabla*@
     <div class="row">
         <div class="col">
             @Html.DisplayFor(model => model.Fecha)
@@ -55,9 +59,9 @@
     </div>
 </div>
 <br>
+@*Botones*@
 <p>
+    @*.                                       se le manda un objeto*@
     @Html.ActionLink("Edit", "Edit", new { id = Model.NoRequisicion }, new { @class = "btn btn-primary pull-right" })
     @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-dark pull-right" })
-    @*modificar la vista para que en lugar de ser "detalles" sea para EXPORTACIÓN
-    Se visualizará la tabla con todas las requisiciones juntas --> Click en botón exportar a PDF*@
 </p>

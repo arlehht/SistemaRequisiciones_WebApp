@@ -11,6 +11,7 @@
     @Html.AntiForgeryToken()
 
     <div class="container-fluid">
+        @*Se muestran los espacios con la información deseada para ser editada*@
         <div class="row">
             <div class="col">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -87,6 +88,7 @@
             <div class="col"></div>
         </div>
         <br>
+        @*Botones*@
         <p>
             <button type="submit" class="btn btn-primary" value="Save">Guardar</button>
             @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-dark pull-right" })

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbRequisicionesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbRequisicionesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Productos">
           <Key>
             <PropertyRef Name="Part" />
@@ -29,6 +29,8 @@
           <Property Name="FechaSurtido" Type="date" Nullable="false" />
           <Property Name="CompraServicio" Type="varchar" MaxLength="120" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dbRequisiciones.dbo.Usuarios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <Association Name="fk_requisicion">
           <End Role="Requisiciones" Type="Self.Requisiciones" Multiplicity="0..1" />
           <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
@@ -49,8 +51,7 @@
             <End Role="Productos" EntitySet="Productos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbRequisicionesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -99,8 +100,8 @@
             <End Role="Requisiciones" EntitySet="Requisiciones" />
             <End Role="Productos" EntitySet="Productos" />
           </AssociationSet>
-        </EntityContainer>
-      </Schema>
+          </EntityContainer>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -132,7 +133,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

@@ -19,6 +19,7 @@ namespace SistemaRequisiciones_WebApp.Models
         {
             this.Productos = new HashSet<Productos>();
         }
+    
         public int NoRequisicion { get; set; }
         public System.DateTime Fecha { get; set; }
         public string Area { get; set; }

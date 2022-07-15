@@ -1,5 +1,8 @@
 ﻿@model IEnumerable<SistemaRequisiciones_WebApp.Models.Requisiciones>
-@*@model SistemaRequisiciones_WebApp.Models.Requisiciones*@
+@*este es el objeto que recibe el IEnumerable*@    
+@SistemaRequisiciones_WebApp.Models.Requisiciones
+@*@model SistemaRequisiciones_WebApp.Models.Requisiciones
+    -- Otra línea que se necesitaría pero no se puede usar aquí ya que sólo se permite una declaración de modelo por página*@
 
 @{
     ViewBag.Title = "Requisiciones";
@@ -8,8 +11,8 @@
 <hr />
 <br>
 <p><a class="btn btn-primary" href="/Requisiciones/Create" role="button">Nueva Requisición</a></p>
-@*Botón nuevo para sacar al modal intento*@
-
+@*Botón para sacar el modal
+    <button type="button" class="btn btn-info form-control" data-toggle="modal" data-target="#myModal">Crear nueva requi</button>*@
 
 @*Encabezado de la tabla*@
 <div class="row">
